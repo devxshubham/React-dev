@@ -6,6 +6,7 @@ export const notificationsAtom = atom({
   default: selector({
     key : "notificationsAtomSelector",
     get : async()=>{
+      await new Promise( r => setTimeout( r, 4000));
       const response = await axios.get("https://sum-server.100xdevs.com/notifications");
       return response.data
     }
